@@ -15,10 +15,11 @@ The purpose of this project was to automate Venmo charges using a webscrapper im
 ## Files Used
 1. setup.py
    This file contains information to use for the automation.
-   The user stores Venmo username and password here to allow application to login.
+   The user stores Venmo account and password here to allow application to login.
    In addition, the list "people_charged" will contain the usernames' of all those who are to be charged.
    chromedriver_path: This is needed by Selenium in order open up Chrome. Alternatively, Selenium can be used through different browsers, but this application has not yet supported.
    venmo_url: This is the url where Selenium loads into when first opening the application.
+   There is also an option to include a spam email and password to notify main email. Please also fill the notify_email as the recipient of these emails.
 
 2. venmo_auto.py
    This file is the meat of the program. A breakdown of how the program work is as follows:
@@ -34,7 +35,7 @@ The purpose of this project was to automate Venmo charges using a webscrapper im
 3b. After this, run again.
 
 ## Implementation Ideas:
-- [ ] Email notifications upon charges.
+- [x] Email notifications upon charges.
 - [ ] Scheduling: Allowing the program to run a certain time of the month.
 - [ ] Enter all user's in one charge rather than separate charges.
 - [ ] User specified prices and notes.
