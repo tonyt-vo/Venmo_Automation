@@ -27,7 +27,7 @@ The purpose of this project was to automate Venmo charges using a webscrapper im
    Upon setup, the application will then login using the credentials. The final step will be charging people a specified amount and leaving a message.
 
 # Set-up guide:
-1. Download the necessary files
+1. Download the necessary files. [chromedriver link](https://sites.google.com/a/chromium.org/chromedriver/)
 2. Update setup.py to include your information.
 3. Run venmo_auto.py
 3a. If it is your first time setting up. Login and use 2-step verification.
