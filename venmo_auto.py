@@ -10,6 +10,8 @@ OPTIONS = webdriver.ChromeOptions()
 OPTIONS.add_experimental_option('prefs', {'credentials_enable_service': False}) # Ignore saving password
 BROWSER = webdriver.Chrome(executable_path=PATH,chrome_options=OPTIONS) # Create the Chrome browser
 BROWSER.get(venmo_url) # Go to Venmo URL to login.
+
+# Change this to false if you do not wish for request complete emails.
 NOTIFY = True
 
 
@@ -79,7 +81,5 @@ def send_email(login_email, login_password, to_address, subject, body):
     server.sendmail(login_email, to_address, text)
     server.quit()
     print("message sent")
-
-
 
 charge()
