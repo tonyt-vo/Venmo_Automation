@@ -15,7 +15,7 @@ BROWSER.get(venmo_url) # Go to Venmo URL to login.
 NOTIFY = True
 
 
-def charge():
+def charge(amount, message):
     if os.path.isfile('cookies.pkl'):
         cookies = pickle.load(open("cookies.pkl", "rb"))
         for cookie in cookies:
@@ -41,16 +41,14 @@ def charge():
 
             # Enter price and notes.
             note_area = BROWSER.find_element_by_id("onebox_details")
-            price = "00.01"
-            message = " testing"
-            note_area.send_keys(price + message)
+            note_area.send_keys(str(price) + message)
             time.sleep(2)
 
             # Locate the charge button and submit.
             final_submit = BROWSER.find_element_by_xpath("//*[@id=\"onebox_send_button\"]").click()
             if NOTIFY:
                 subject = "Venmo Automatic Request"
-                body = "Hello, \n Payment has been requested to " + person
+                body = "Payment Request sent to: " + person
                 send_email(spam_email,spam_password,notify_email,subject,body)
             time.sleep(15) # Wait  20 seconds before next iteration.
 
@@ -82,4 +80,4 @@ def send_email(login_email, login_password, to_address, subject, body):
     server.quit()
     print("message sent")
 
-charge()
+charge("00.01", "Testing Purposes")
